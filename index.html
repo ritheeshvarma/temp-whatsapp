@@ -13,218 +13,137 @@
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
         }
 
+        :root {
+            --primary-color: #128C7E;
+            --secondary-color: #25D366;
+            --chat-bg-sent: #DCF8C6;
+            --chat-bg-received: #FFFFFF;
+            --header-bg: #F0F2F5;
+            --input-bg: #F0F2F5;
+            --border-color: #E6E6E6;
+            --text-primary: #3B4A54;
+            --text-secondary: #667781;
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
         body {
-            background: #f0f2f5;
+            background: linear-gradient(135deg, #ECE9E6, #FFFFFF);
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .container {
             width: 100%;
             max-width: 500px;
-            height: 100vh;
-            max-height: 900px;
-            background: #fff;
-            border-radius: 8px;
+            height: 90vh;
+            background-color: white;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
+            box-shadow: var(--shadow);
         }
 
-        /* Landing Page Styles */
-        .landing-page {
-            padding: 30px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        .header {
+            background-color: var(--primary-color);
             color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .app-name {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .code-input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
-        .code-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #128C7E;
-        }
-
-        .btn-primary:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            margin-top: 15px;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Chat Interface Styles */
-        .chat-container {
-            display: none;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .chat-header {
-            background: #f0f2f5;
-            padding: 15px 20px;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid #e0e0e0;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 18px;
         }
 
-        .back-button {
-            margin-right: 15px;
-            cursor: pointer;
-            font-size: 1.2rem;
+        .logo i {
+            font-size: 22px;
         }
 
-        .user-info {
-            flex-grow: 1;
-        }
-
-        .user-name {
-            font-weight: bold;
-            color: #128C7E;
-        }
-
-        .status {
-            font-size: 0.8rem;
-            color: #65676b;
-        }
-
-        .header-actions {
+        .room-code {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
             display: flex;
-            gap: 15px;
+            align-items: center;
+            gap: 5px;
         }
 
-        .header-actions i {
-            color: #54656f;
-            cursor: pointer;
-        }
-
-        .chat-messages {
-            flex-grow: 1;
-            padding: 20px;
+        .chat-container {
+            flex: 1;
             overflow-y: auto;
-            background: #ece5dd;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23d4f8c8' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/svg%3E");
+            padding: 20px;
+            background-color: #e6e6e6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23cccccc' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .message {
-            max-width: 75%;
+            max-width: 80%;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message-content {
             padding: 10px 15px;
-            margin-bottom: 10px;
             border-radius: 7.5px;
+            margin-bottom: 5px;
             position: relative;
             word-wrap: break-word;
         }
 
-        .message-sent {
-            background: #dcf8c6;
-            margin-left: auto;
-            border-top-right-radius: 0;
+        .received {
+            align-items: flex-start;
         }
 
-        .message-received {
-            background: white;
-            margin-right: auto;
-            border-top-left-radius: 0;
+        .received .message-content {
+            background-color: var(--chat-bg-received);
+            box-shadow: var(--shadow);
+        }
+
+        .sent {
+            align-items: flex-end;
+            margin-left: auto;
+        }
+
+        .sent .message-content {
+            background-color: var(--chat-bg-sent);
+            box-shadow: var(--shadow);
         }
 
         .message-time {
-            font-size: 0.7rem;
-            text-align: right;
-            color: #8696a0;
-            margin-top: 3px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin: 0 5px;
         }
 
-        .chat-input {
+        .input-area {
             display: flex;
-            padding: 15px;
-            background: #f0f2f5;
-            border-top: 1px solid #e0e0e0;
-            align-items: center;
-        }
-
-        .input-container {
-            flex-grow: 1;
-            background: white;
-            border-radius: 20px;
-            padding: 5px 15px;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
+            padding: 10px;
+            background-color: var(--header-bg);
+            gap: 10px;
         }
 
         .message-input {
-            flex-grow: 1;
+            flex: 1;
+            padding: 12px 15px;
             border: none;
-            padding: 10px 0;
-            font-size: 1rem;
+            border-radius: 20px;
             outline: none;
-        }
-
-        .input-actions i {
-            color: #54656f;
-            margin-left: 10px;
-            cursor: pointer;
+            font-size: 14px;
         }
 
         .send-button {
-            background: #128C7E;
+            background-color: var(--primary-color);
             color: white;
             border: none;
             width: 40px;
@@ -234,267 +153,298 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .send-button:disabled {
-            background: #a0a0a0;
-            cursor: not-allowed;
+        .send-button:hover {
+            background-color: var(--secondary-color);
         }
 
-        .connection-info {
+        .connection-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 10;
+        }
+
+        .connection-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 400px;
             text-align: center;
-            padding: 10px;
-            background: #f0f2f5;
-            font-size: 0.9rem;
-            color: #65676b;
-            border-bottom: 1px solid #e0e0e0;
         }
 
-        /* Responsive Design */
+        .form-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .form-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .info-text {
+            margin-top: 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .code-display {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            gap: 10px;
+        }
+
+        .code-value {
+            flex: 1;
+            padding: 12px;
+            background-color: var(--header-bg);
+            border-radius: 5px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .copy-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         @media (max-width: 600px) {
             .container {
                 height: 100vh;
-                max-height: 100vh;
+                width: 100%;
                 border-radius: 0;
             }
             
-            .message {
-                max-width: 85%;
+            body {
+                padding: 0;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Landing Page -->
-        <div class="landing-page" id="landing-page">
+        <div class="header">
             <div class="logo">
                 <i class="fas fa-comments"></i>
+                <span>TempChat</span>
             </div>
-            <div class="app-name">TempChat</div>
-            <div class="tagline">Temporary real-time chat with no registration required</div>
-            <input type="text" class="code-input" id="code-input" placeholder="Enter chat code">
-            <button class="btn btn-primary" id="join-chat">Join Chat</button>
-            <button class="btn btn-secondary" id="generate-code">Generate New Code</button>
+            <div class="room-code">
+                <i class="fas fa-key"></i>
+                <span id="current-room">Not connected</span>
+            </div>
         </div>
-
-        <!-- Chat Interface -->
+        
         <div class="chat-container" id="chat-container">
-            <div class="connection-info" id="connection-info">
-                Connected to chat: <span id="chat-code-display"></span>
+            <!-- Messages will be inserted here -->
+        </div>
+        
+        <div class="input-area">
+            <input type="text" class="message-input" id="message-input" placeholder="Type a message..." disabled>
+            <button class="send-button" id="send-button" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="connection-screen" id="connection-screen">
+        <div class="connection-form">
+            <h2 class="form-title">Join TempChat</h2>
+            
+            <div id="create-room-section">
+                <div class="code-display">
+                    <div class="code-value" id="generated-code">ABCD12</div>
+                    <button class="copy-button" id="copy-code">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <button class="form-button" id="create-room-button">Create Chat Room</button>
+                <p class="info-text">Share this code with someone to start chatting</p>
             </div>
-            <div class="chat-header">
-                <div class="back-button" id="back-button">
-                    <i class="fas fa-arrow-left"></i>
-                </div>
-                <div class="user-info">
-                    <div class="user-name">TempChat User</div>
-                    <div class="status" id="connection-status">Online</div>
-                </div>
-                <div class="header-actions">
-                    <i class="fas fa-phone-alt"></i>
-                    <i class="fas fa-video"></i>
-                    <i class="fas fa-info-circle"></i>
-                </div>
-            </div>
-            <div class="chat-messages" id="chat-messages">
-                <!-- Messages will be inserted here -->
-            </div>
-            <div class="chat-input">
-                <div class="input-container">
-                    <i class="far fa-smile"></i>
-                    <input type="text" class="message-input" id="message-input" placeholder="Type a message">
-                    <div class="input-actions">
-                        <i class="fas fa-paperclip"></i>
-                        <i class="fas fa-camera"></i>
-                    </div>
-                </div>
-                <button class="send-button" id="send-button" disabled>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+            
+            <div style="margin: 20px 0; border-top: 1px solid var(--border-color);"></div>
+            
+            <div id="join-room-section">
+                <input type="text" class="form-input" id="room-code-input" placeholder="Enter room code">
+                <button class="form-button" id="join-button">Join Chat Room</button>
+                <p class="info-text">Enter a code from another user to join their chat</p>
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // DOM Elements
-            const landingPage = document.getElementById('landing-page');
+            // DOM elements
             const chatContainer = document.getElementById('chat-container');
-            const codeInput = document.getElementById('code-input');
-            const joinChatBtn = document.getElementById('join-chat');
-            const generateCodeBtn = document.getElementById('generate-code');
-            const backButton = document.getElementById('back-button');
             const messageInput = document.getElementById('message-input');
             const sendButton = document.getElementById('send-button');
-            const chatMessages = document.getElementById('chat-messages');
-            const chatCodeDisplay = document.getElementById('chat-code-display');
-            const connectionStatus = document.getElementById('connection-status');
-            const connectionInfo = document.getElementById('connection-info');
+            const connectionScreen = document.getElementById('connection-screen');
+            const roomCodeInput = document.getElementById('room-code-input');
+            const joinButton = document.getElementById('join-button');
+            const createRoomButton = document.getElementById('create-room-button');
+            const copyCodeButton = document.getElementById('copy-code');
+            const generatedCodeSpan = document.getElementById('generated-code');
+            const currentRoomSpan = document.getElementById('current-room');
             
-            // WebSocket connection
-            let socket = null;
-            let currentChatCode = null;
-            
-            // Generate a random 6-digit code
-            function generateCode() {
-                return Math.floor(100000 + Math.random() * 900000).toString();
+            // Generate a random room code
+            function generateRoomCode() {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                let code = '';
+                for (let i = 0; i < 6; i++) {
+                    code += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return code;
             }
             
             // Initialize with a generated code
-            window.onload = function() {
-                codeInput.value = generateCode();
-            };
+            generatedCodeSpan.textContent = generateRoomCode();
             
-            // Generate new code
-            generateCodeBtn.addEventListener('click', function() {
-                codeInput.value = generateCode();
-            });
-            
-            // Join chat with code
-            joinChatBtn.addEventListener('click', function() {
-                const code = codeInput.value.trim();
-                if (code.length < 4) {
-                    alert('Please enter a valid code (at least 4 characters)');
-                    return;
-                }
-                
-                currentChatCode = code;
-                chatCodeDisplay.textContent = code;
-                
-                // Show chat interface
-                landingPage.style.display = 'none';
-                chatContainer.style.display = 'flex';
-                
-                // Connect to WebSocket (using a public test server)
-                connectWebSocket();
-            });
-            
-            // Back to landing page
-            backButton.addEventListener('click', function() {
-                if (socket) {
-                    socket.close();
-                }
-                
-                chatContainer.style.display = 'none';
-                landingPage.style.display = 'flex';
-                
-                // Clear messages
-                chatMessages.innerHTML = '';
-                messageInput.value = '';
-            });
-            
-            // Enable send button when there's text
-            messageInput.addEventListener('input', function() {
-                sendButton.disabled = messageInput.value.trim() === '';
-            });
-            
-            // Send message on button click
-            sendButton.addEventListener('click', sendMessage);
-            
-            // Send message on Enter key
-            messageInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && !sendButton.disabled) {
-                    sendMessage();
-                }
-            });
-            
-            // Send message function
-            function sendMessage() {
-                const message = messageInput.value.trim();
-                if (message === '' || !socket) return;
-                
-                // Create message data
-                const messageData = {
-                    type: 'message',
-                    code: currentChatCode,
-                    text: message,
-                    timestamp: new Date().toISOString()
-                };
-                
-                // Send through WebSocket
-                socket.send(JSON.stringify(messageData));
-                
-                // Add to chat UI
-                addMessageToChat(message, true);
-                
-                // Clear input
-                messageInput.value = '';
-                sendButton.disabled = true;
-            }
-            
-            // Add message to chat UI
-            function addMessageToChat(text, isSent = false) {
+            // Show a message in the chat
+            function displayMessage(message, isSent = false) {
                 const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${isSent ? 'message-sent' : 'message-received'}`;
+                messageDiv.className = `message ${isSent ? 'sent' : 'received'}`;
                 
-                const messageText = document.createElement('div');
-                messageText.className = 'message-text';
-                messageText.textContent = text;
+                const messageContent = document.createElement('div');
+                messageContent.className = 'message-content';
+                messageContent.textContent = message;
                 
                 const messageTime = document.createElement('div');
                 messageTime.className = 'message-time';
                 messageTime.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 
-                messageDiv.appendChild(messageText);
+                messageDiv.appendChild(messageContent);
                 messageDiv.appendChild(messageTime);
                 
-                chatMessages.appendChild(messageDiv);
-                
-                // Scroll to bottom
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+                chatContainer.appendChild(messageDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
             }
             
-            // Connect to WebSocket
-            function connectWebSocket() {
-                // Using a public test WebSocket server
-                socket = new WebSocket('wss://echo.websocket.org');
+            // Join a chat room
+            function joinRoom(roomCode, isHost = false) {
+                currentRoom = roomCode;
+                currentRoomSpan.textContent = roomCode;
                 
-                socket.onopen = function() {
-                    console.log('WebSocket connection established');
-                    connectionStatus.textContent = 'Online';
-                    connectionStatus.style.color = '#128C7E';
-                    
-                    // Send join message with code
-                    const joinData = {
-                        type: 'join',
-                        code: currentChatCode
-                    };
-                    socket.send(JSON.stringify(joinData));
-                    
-                    // Add welcome message
-                    addMessageToChat('You joined the chat. Send a message to start!', false);
-                };
+                // Enable input and button
+                messageInput.disabled = false;
+                sendButton.disabled = false;
                 
-                socket.onmessage = function(event) {
-                    try {
-                        const data = JSON.parse(event.data);
-                        
-                        if (data.type === 'message' && data.code === currentChatCode) {
-                            // Only display messages for our chat code
-                            addMessageToChat(data.text, false);
-                        }
-                    } catch (e) {
-                        // If it's not JSON, just display as plain text
-                        addMessageToChat(event.data, false);
-                    }
-                };
+                // Hide connection screen
+                connectionScreen.style.display = 'none';
                 
-                socket.onclose = function() {
-                    console.log('WebSocket connection closed');
-                    connectionStatus.textContent = 'Offline';
-                    connectionStatus.style.color = '#ff0000';
-                };
-                
-                socket.onerror = function(error) {
-                    console.error('WebSocket error:', error);
-                    connectionStatus.textContent = 'Connection Error';
-                    connectionStatus.style.color = '#ff0000';
-                    
-                    // Add error message
-                    addMessageToChat('Failed to connect to chat server. Some features may not work.', false);
-                };
+                // Display welcome message
+                if (isHost) {
+                    displayMessage("You created a chat room. Share the code with someone to start chatting.", false);
+                } else {
+                    displayMessage("You joined the chat room. Say hello!", false);
+                    // Simulate a response after a short delay
+                    setTimeout(() => {
+                        displayMessage("Hello! Thanks for joining the chat. How are you today?", false);
+                    }, 1000);
+                }
             }
+            
+            // Send a message
+            function sendMessage() {
+                const message = messageInput.value.trim();
+                if (message) {
+                    displayMessage(message, true);
+                    messageInput.value = '';
+                    
+                    // Simulate a response after a short delay
+                    setTimeout(() => {
+                        const responses = [
+                            "That's interesting!",
+                            "Tell me more about that.",
+                            "I understand what you mean.",
+                            "Thanks for sharing!",
+                            "I've been thinking about that too.",
+                            "What else is on your mind?"
+                        ];
+                        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                        displayMessage(randomResponse, false);
+                    }, 1000 + Math.random() * 2000);
+                }
+            }
+            
+            // Event listeners
+            sendButton.addEventListener('click', sendMessage);
+            
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            joinButton.addEventListener('click', function() {
+                const roomCode = roomCodeInput.value.trim().toUpperCase();
+                if (roomCode) {
+                    joinRoom(roomCode, false);
+                } else {
+                    alert("Please enter a room code");
+                }
+            });
+            
+            createRoomButton.addEventListener('click', function() {
+                joinRoom(generatedCodeSpan.textContent, true);
+            });
+            
+            copyCodeButton.addEventListener('click', function() {
+                navigator.clipboard.writeText(generatedCodeSpan.textContent)
+                    .then(() => {
+                        const originalText = copyCodeButton.innerHTML;
+                        copyCodeButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                        setTimeout(() => {
+                            copyCodeButton.innerHTML = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        alert('Failed to copy code: ' + err);
+                    });
+            });
+            
+            // Generate a new code
+            document.getElementById('generated-code').addEventListener('click', function() {
+                generatedCodeSpan.textContent = generateRoomCode();
+            });
         });
     </script>
 </body>
